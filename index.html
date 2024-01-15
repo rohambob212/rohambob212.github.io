@@ -1,92 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>r.u.n generator</title>
-    <link rel="icon" type="image/x-icon" href="numbers.ico">
-    <style>
-        body {
-            font-family: 'Comic Sans MS', sans-serif;
-            background-color: #f0f0f0;
-            color: #A020F0;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css" />
+        <link rel="stylesheet" href="_PATH_core.css" />
+        <script type="module" src="_PATH_core.js"></script>
+        <title>PyScript</title>
+    </head>
 
-        #container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    <body>
+        <main>
+            <h1>&lt;py-script&gt;</h1>
+            <ul>
+                <li><a href="core.js">core.js</a></li>
+                <li><a href="core.js.map">core.js.map</a></li>
+                <li><a href="core.css">core.css</a></li>
+            </ul>
+            <div id="out"></div>
+            <py-script>
+                from pyscript import display
+                import sys
+                display(sys.version)
+            </py-script>
 
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+            <h2>Example</h2>
+            <pre style="padding: 1em; border: 1px solid #000000">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot; /&gt;
+    &lt;title&gt;PyScript Hello World&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;_PATH_core.css&quot; /&gt;
+    &lt;script type=&quot;module&quot; src=&quot;_PATH_core.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
 
-        #thaframe {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        #ln {
-            padding: 8px;
-            width: 80px;
-        }
-
-        #generateBtn {
-            padding: 8px 20px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        #output {
-            font: italic bold 30px papyrus;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div id="container">
-        <h1>r.u.n generator</h1>
-
-        <div id="thaframe">
-            <input type="number" id="ln" placeholder="Length" min="1" max="9">
-            <button id="generateBtn" onclick="generate()">Generate</button>
-        </div>
-
-        <div id="output">Output</div>
-    </div>
-
-    <script>
-        function generate() {
-            var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-            var lengthInput = document.getElementById('ln');
-            var length = parseInt(lengthInput.value);
-
-            if (length >= 1 && length <= 9) {
-                var output = document.getElementById('output');
-                output.innerHTML = '';
-
-                for (var i = 0; i < length; i++) {
-                    var randomIndex = Math.floor(Math.random() * numbers.length);
-                    output.innerHTML += numbers.splice(randomIndex, 1)[0];
-                }
-            } else {
-                alert('Please enter a valid length between 1 and 9.');
-            }
-        }
-    </script>
-</body>
+    &lt;body&gt;
+    Hello world! &lt;br&gt;
+    This is the current date and time, as computed by Python:
+    &lt;py-script&gt;
+from pyscript import display
+from datetime import datetime
+now = datetime.now()
+display(now.strftime(&quot;%m/%d/%Y, %H:%M:%S&quot;))
+    &lt;/py-script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre
+            >
+        </main>
+    </body>
 </html>
