@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>r.u.n generator</title>
+    <link rel="icon" type="image/x-icon" href="numbers.ico">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            background-color: #f0f0f0;
+            color: #A020F0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #thaframe {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #ln {
+            padding: 8px;
+            width: 80px;
+        }
+
+        #generateBtn {
+            padding: 8px 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #output {
+            font: italic bold 30px papyrus;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>r.u.n generator</h1>
+
+        <div id="thaframe">
+            <input type="number" id="ln" placeholder="Length" min="1" max="9">
+            <button id="generateBtn" onclick="generate()">Generate</button>
+        </div>
+
+        <div id="output">Output</div>
+    </div>
+
+    <script>
+        function generate() {
+            var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            var lengthInput = document.getElementById('ln');
+            var length = parseInt(lengthInput.value);
+
+            if (length >= 1 && length <= 9) {
+                var output = document.getElementById('output');
+                output.innerHTML = '';
+
+                for (var i = 0; i < length; i++) {
+                    var randomIndex = Math.floor(Math.random() * numbers.length);
+                    output.innerHTML += numbers.splice(randomIndex, 1)[0];
+                }
+            } else {
+                alert('Please enter a valid length between 1 and 9.');
+            }
+        }
+    </script>
+</body>
+</html>
