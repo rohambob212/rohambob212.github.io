@@ -1,4 +1,5 @@
-require("aframe")
-document.querySelector('a-entity').addEventListener('collide', function (evt) {
-    console.log('This A-Frame entity collided with another entity!');
+document.addEventListener('keydown', function(event) {
+    document.querySelectorAll('.listenonkey').forEach(function(obj){
+      obj.setAttribute('position', '0 0 0');
+    });
   });
