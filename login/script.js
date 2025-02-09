@@ -1,7 +1,22 @@
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+document.addEventListener("keydown", async function(evt) {
+    if (takinginput) {
+        if (evt.key == "Enter") {
+            checkpass(pass)
+        }
+        else if (evt.key == "Backspace" && pass.length > 0) {
+            pass = pass.substring(0, pass.length - 1);
+        }
+        else if (evt.key.length < 2) {
+            pass += evt.key
+        }
+
+    }
+})
 let takinginput = false
+let pass = ""
 document.addEventListener("DOMContentLoaded", async function() {
     document.getElementById("waiter").style.backgroundColor = "Black";
     lines = [document.getElementById("firstline"),document.getElementById("secondline"),document.getElementById("thirdline"),document.getElementById("fourthline"),document.getElementById("fifthline")];
@@ -13,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             await sleep(125)
             line.innerHTML += clinetext[i]
         }
-        await sleep(450)
+        await sleep(400)
     }
     takinginput = true
     document.getElementById("waiter").style.backgroundColor = "White"
@@ -24,7 +39,9 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
 
 });
-
+function checkpass(password) {
+    console.log(password)
+}
 function flick(ttf) {
     if (ttf.style.backgroundColor === "white") {
         ttf.style.backgroundColor = "Black"
@@ -33,3 +50,5 @@ function flick(ttf) {
         ttf.style.backgroundColor = "White"
     }
 }
+
+
