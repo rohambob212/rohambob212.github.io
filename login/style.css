@@ -5,3 +5,12 @@ body {
     color: white;
     left: 0%;
 }
+
+#waiter {
+    position: absolute;
+    left: 310px;
+    bottom: 602px;
+    background-color: white;
+    width: 8px;
+    height: 18px;
+}
