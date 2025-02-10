@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         line = lines[i]
         clinetext = linetexts[i]
         for (let i = 0; i < clinetext.length; i++) {
-            await sleep(125)
+            await sleep(50)
             line.innerHTML += clinetext[i]
         }
         await sleep(400)
