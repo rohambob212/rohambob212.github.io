@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 function checkpass(password) {
     let rpass
     apiget("https://getpantry.cloud/apiv1/pantry/2f27db52-873b-40e4-bee9-8b8dd825120b/basket/codes").then(
-        result => {
+        result => { 
             rpass = result["codeone"]
             if (password === rpass) {
                 alert("congrats! (this is temporary)")
