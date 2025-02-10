@@ -15,6 +15,11 @@ document.addEventListener("keydown", async function(evt) {
 
     }
 })
+async function apiget(url) {
+    let response;
+    response = await fetch(url);
+    return await response.json();
+}
 let takinginput = false
 let pass = ""
 document.addEventListener("DOMContentLoaded", async function() {
@@ -41,6 +46,21 @@ document.addEventListener("DOMContentLoaded", async function() {
 });
 function checkpass(password) {
     console.log(password)
+    let rpass
+    apiget("https://getpantry.cloud/apiv1/pantry/2f27db52-873b-40e4-bee9-8b8dd825120b/basket/codes").then(
+        result => {
+            console.log(result)
+            rpass = result["codeone"]
+            if (password === rpass) {
+                alert("congrats! (this is temporary)")
+            }
+            else {
+                alert("wrong password")
+                window.close()
+            }
+        }
+    )
+
 }
 function flick(ttf) {
     if (ttf.style.backgroundColor === "white") {
