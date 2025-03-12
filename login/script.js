@@ -54,7 +54,7 @@ function checkpass(password) {
             }
             else {
                 alert("wrong password")
-                window.close()
+                window.open('','_self').close()
             }
         }
     )
