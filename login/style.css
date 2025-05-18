@@ -4,13 +4,19 @@ body {
 .line {
     color: white;
     left: 0%;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #waiter {
-    position: absolute;
-    left: 310px;
-    bottom: 521.5px;
+    position: sticky;
+    transform:translate(10px, 14px);
     background-color: white;
     width: 8px;
     height: 18px;
+}
+
+#linewaiter {
+    display: flex;
 }

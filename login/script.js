@@ -15,6 +15,24 @@ document.addEventListener("keydown", async function(evt) {
 
     }
 })
+
+async function hash(str) {
+    // Encode the message as a Uint8Array
+    const msgBuffer = new TextEncoder().encode(message);
+
+    // Hash the message
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+
+    // Convert ArrayBuffer to Array
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+    // Convert bytes to hex string
+    const hashHex = hashArray
+        .map(b => b.toString(16).padStart(2, '0'))
+        .join('');
+
+    return hashHex;
+}
 async function apiget(url) {
     let response;
     response = await fetch(url);
@@ -46,18 +64,15 @@ document.addEventListener("DOMContentLoaded", async function() {
 });
 function checkpass(password) {
     let rpass
-    apiget("https://getpantry.cloud/apiv1/pantry/2f27db52-873b-40e4-bee9-8b8dd825120b/basket/codes").then(
-        result => { 
-            rpass = result["codeone"]
-            if (password === rpass) {
+            rpass = "fdc961aa1696d20c6d04256a2efac0177c50cf61511fa71f06dd47f102780bde"
+            if (hash(password) === rpass) {
                 alert("congrats! (this is temporary)")
             }
             else {
                 alert("wrong password")
-                window.open('','_self').close()
+                window.open('', '_self').close()
             }
-        }
-    )
+
 
 }
 function flick(ttf) {
