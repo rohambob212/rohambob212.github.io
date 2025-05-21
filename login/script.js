@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     hiddenInput.addEventListener('keydown', function(event) {
         if (event.key === "Enter") {
+            hiddenInput.value = ""
             checkpass();
         }
     });
