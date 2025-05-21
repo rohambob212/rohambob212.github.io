@@ -20,3 +20,12 @@ body {
 #linewaiter {
     display: flex;
 }
+
+#hiddenPasswordInput {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    top: -1000px; /* Position off-screen */
+    left: -1000px; /* Position off-screen */
+}
