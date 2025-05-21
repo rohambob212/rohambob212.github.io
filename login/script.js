@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     hiddenInput.addEventListener('keydown', function(event) {
         if (event.key === "Enter") {
-            hiddenInput.value = ""
             checkpass();
+            hiddenInput.value = ""
         }
     });
     // The rest of the logic related to 'takinginput' and 'flick' has been removed.
