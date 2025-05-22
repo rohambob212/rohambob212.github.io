@@ -28,8 +28,8 @@ async function apiget(url) {
     return await response.json();
 }
 
-// let takinginput = false; // Removed
-// let pass = ""; // Removed
+let takinginput = false;
+
 
 document.addEventListener("DOMContentLoaded", async function() {
     document.getElementById("waiter").style.backgroundColor = "Black";
@@ -47,6 +47,12 @@ document.addEventListener("DOMContentLoaded", async function() {
     document.getElementById("waiter").style.backgroundColor = "White";
     let hiddenInput = document.getElementById("hiddenPasswordInput");
     hiddenInput.focus();
+
+    takinginput = true;
+    while(takinginput) {
+        flick(waiter)
+        await sleep(500)
+    }
 
     hiddenInput.addEventListener('keydown', function(event) {
         if (event.key === "Enter") {
@@ -74,5 +80,11 @@ function checkpass() { // Removed password argument
     });
 }
 
-// function flick(ttf) { // Removed as it's no longer used
-// }
+function flick(ttf) {
+    if (ttf.style.backgroundColor === "white") {
+        ttf.style.backgroundColor = "Black"
+    }
+    else if (ttf.style.backgroundColor === "black") {
+        ttf.style.backgroundColor = "White"
+    }
+}
